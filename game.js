@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+   
+
+
+
     // Initialize Game
     initGame();
 
@@ -15,6 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	function fieldClickHandler() {
         // Log Hello in console
         console.log("Hello", this);
-
+         this.classList.add("red");
     }
 });
