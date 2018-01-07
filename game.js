@@ -1,14 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-  initGame();
 
-  function initGame() {
-    var fields = document.querySelectorAll('.bord > div');
+    // Initialize Game
+    initGame();
 
-  fields.forEach(field function() {} => {
-    field.addEventListener('click', fieldClickHandler)
-  });
-  }
-  function fieldClickHandler() {
-    console.log('clicked', this);
-  }
+    function initGame() {
+        // Find all divs in .board - they are our clieckable fields.
+        var fields = document.querySelectorAll('.board > div');
+        console.log('fields', fields);
+
+        // For each field add function that will run when we click it.
+		fields.forEach(field => field.addEventListener('click', fieldClickHandler));
+	}
+
+	function fieldClickHandler() {
+        // Log Hello in console
+        console.log("Hello", this);
+
+    }
 });
