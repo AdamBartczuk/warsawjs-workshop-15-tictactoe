@@ -81,5 +81,13 @@ setTimeout(function() {
          initGame();
       };
    }, 200);
+
+   displayPlayer();
+   };
+
+   function displayPlayer () {
+      var actualPlayer = document.getElementById("playerName");
+      // actualPlayer = actualPlayer.innerHTML()
+      console.log(actualPlayer);
    };
 });
