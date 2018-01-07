@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentPlayer;
     var emptyFields;
 
+    var scores = {
+      'playerA': 0,
+      'playerB': 0
+   }
+
+
+   var resetBtn = document.getElementById('resetButton');
+   resetBtn.addEventListener('click', resetScore);
+
+
     initGame();
 
     function initGame() {
@@ -18,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
      // Set current player to 0 (red player)
 		currentPlayer = 'playerA';
 		fields.forEach(field => field.addEventListener('click', fieldClickHandler));
+
+      displayPlayer();
 	}
 
 	function fieldClickHandler () {
@@ -72,9 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
 setTimeout(function() {
       if ( boardCheck.includes("redredred") ) {
             alert("PlayerA won!");
+            displayScore();
             initGame();
       } else if (boardCheck.includes("blueblueblue") ) {
             alert("PlayerB won!");
+            displayScore();
             initGame();
       } else if (emptyFields === 0) {
          alert("game has ended");
@@ -86,8 +100,36 @@ setTimeout(function() {
    };
 
    function displayPlayer () {
+      var playerTurn = document.getElementById("player_turn");
       var actualPlayer = document.getElementById("playerName");
-      // actualPlayer = actualPlayer.innerHTML()
-      console.log(actualPlayer);
+
+      playerTurn.className = playerClasses[currentPlayer];
+		actualPlayer.innerHTML = currentPlayer;
    };
+
+   function displayScore() {
+      var playersScores = document.querySelectorAll(".score");
+      scores[currentPlayer]++;
+      console.log(playersScores);
+      if(currentPlayer =='playerB'){
+      playersScores[0].innerHTML = scores[currentPlayer];
+      } else if (currentPlayer =='playerA') {
+      playersScores[1].innerHTML = scores[currentPlayer];
+      }
+   }
+
+   function resetScore() {
+      scores = {
+        'playerA': 0,
+        'playerB': 0
+     }
+     var playersScores = document.querySelectorAll(".score");
+     playersScores[0].innerHTML = scores[currentPlayer];
+     playersScores[1].innerHTML = scores[currentPlayer];
+
+      console.log("hello");
+   }
+
+
+
 });

@@ -10,8 +10,8 @@
 </head>
 <body>
 
-   <div class="player_turn red">
-      <div><p>Round for: </p></div>
+   <div id="player_turn">
+      <div id="round_for"><p>Round for: </p></div>
       <div id="playerName">playerA</div>
    </div>
     <div class="board">
@@ -25,5 +25,12 @@
 		<div></div>
 		<div></div>
 	</div>
+
+   <div>
+      <h2>Score</h2>
+      <p> PlayerA score: <span class="score">0</span></p>
+      <p>PlayerB score: <span class="score">0</span></p>
+   </div>
+   <button type="button" name="button" id="resetButton">Reset</button>
 </body>
 </html>
